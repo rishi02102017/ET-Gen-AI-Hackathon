@@ -83,7 +83,23 @@ export function ResultsDashboard({ result }: Props) {
         </div>
         <div className="bento bento--navigator">
           <div className="card card--divergence">
-            <div className="card-kicker">Divergence index</div>
+            <div className="card-kicker-row">
+              <div className="card-kicker">Divergence index</div>
+              <details className="divergence-help">
+                <summary>How to read this score</summary>
+                <div className="divergence-help-body">
+                  <p>
+                    The index is a <strong>framing distance</strong> measure (0–100), not a truth score.
+                    Higher values mean sources differ more in stance, emphasized language, which claims
+                    they foreground, stated omissions, and how actors are cast.
+                  </p>
+                  <p>
+                    Use it to prioritize human review: pair it with <strong>verbatim evidence</strong> and{" "}
+                    <strong>omission signals</strong> per source—not as a verdict on accuracy.
+                  </p>
+                </div>
+              </details>
+            </div>
             <div className="divergence-visual">
               <DivergenceRing score={d.score_0_100} gradientId={gradId} />
               <div className="divergence-meta">

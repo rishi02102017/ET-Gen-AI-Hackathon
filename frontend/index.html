@@ -12,6 +12,18 @@
       rel="stylesheet"
     />
     <title>FrameAtlas — Narrative Intelligence</title>
+    <style>
+      /* First paint: match app shell before JS (avoids long white flash) */
+      html {
+        background-color: #07080c;
+      }
+      body {
+        margin: 0;
+        background-color: #07080c;
+        color: #e2e8f0;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

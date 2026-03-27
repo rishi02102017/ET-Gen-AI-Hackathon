@@ -10,6 +10,14 @@ export interface AnalyzeRequestPayload {
   articles: ArticleInputPayload[];
 }
 
+export interface HealthPayload {
+  status: "ok";
+  pipeline_version: string;
+  llm_mode: "live" | "mock";
+  llm_api_host: string | null;
+  llm_fallback_ready: boolean;
+}
+
 export interface EvidenceSpan {
   quote: string;
   role: "stance_support" | "emphasis" | "tone" | "actor_framing";

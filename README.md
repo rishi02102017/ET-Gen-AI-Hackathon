@@ -442,6 +442,8 @@ npm run dev
 
 The Vite development server proxies `/api` to `http://127.0.0.1:8000`. The UI uses client-side routes: `/` (workspace) and `/methodology`. Static hosting must fall back to `index.html` for those paths (the included Nginx config already does).
 
+The workspace includes **Load demo corpus** (two contrasting synthetic articles), a **skip-to-content** link, header **API status** from `GET /api/v1/health`, smooth scroll to results after analysis (respects `prefers-reduced-motion`), and an inline first-paint background in `index.html` to reduce white flash before JS loads.
+
 ### 11.3 Docker Compose
 
 ```bash

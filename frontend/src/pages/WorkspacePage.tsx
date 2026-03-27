@@ -1,8 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import "../App.css";
 import { analyzeArticles } from "../api/client";
 import { LoadingExperience } from "../components/LoadingExperience";
 import { ResultsDashboard } from "../components/ResultsDashboard";
+import { DEMO_ARTICLES } from "../data/demoCorpus";
+import { usePrefersReducedMotion } from "../hooks/usePrefersReducedMotion";
 import type { AnalysisResponsePayload, ArticleInputPayload } from "../types";
 
 type Row = ArticleInputPayload & { key: string };
@@ -20,6 +22,16 @@ export function WorkspacePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<AnalysisResponsePayload | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const reducedMotion = usePrefersReducedMotion();
+
+  useEffect(() => {
+    if (!result || !resultsRef.current) return;
+    resultsRef.current.scrollIntoView({
+      behavior: reducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  }, [result, reducedMotion]);
 
   const canSubmit = useMemo(
     () =>
@@ -39,6 +51,19 @@ export function WorkspacePage() {
 
   function removeRow(key: string) {
     setRows((prev) => (prev.length <= 2 ? prev : prev.filter((r) => r.key !== key)));
+  }
+
+  function loadDemoCorpus() {
+    setError(null);
+    setResult(null);
+    setRows(
+      DEMO_ARTICLES.map((a) => ({
+        key: makeKey(),
+        url: "",
+        text: a.text ?? "",
+        source_label: a.source_label ?? "",
+      })),
+    );
   }
 
   async function onSubmit(e: React.FormEvent) {
@@ -68,7 +93,7 @@ export function WorkspacePage() {
 
   return (
     <>
-      <main className="main">
+      <main id="main-content" className="main" tabIndex={-1}>
         <section className="hero">
           <p className="hero-eyebrow">Multi-source news analysis</p>
           <h1 className="hero-title">
@@ -117,9 +142,17 @@ export function WorkspacePage() {
                 provided, pasted text takes precedence for analysis.
               </p>
             </div>
+            <button
+              type="button"
+              className="btn btn--ghost btn--demo"
+              onClick={loadDemoCorpus}
+              disabled={loading}
+            >
+              Load demo corpus
+            </button>
           </div>
 
-          <form className="corpus-form" onSubmit={onSubmit}>
+          <form className="corpus-form" onSubmit={onSubmit} aria-busy={loading}>
             <div className="article-stack">
               {rows.map((r, idx) => (
                 <div key={r.key} className="article-card">
@@ -185,7 +218,17 @@ export function WorkspacePage() {
           </form>
         </section>
 
-        {result ? <ResultsDashboard result={result} /> : null}
+        {result ? (
+          <div
+            ref={resultsRef}
+            id="navigator-results"
+            className="results-mount"
+            aria-live="polite"
+            aria-label="Analysis results"
+          >
+            <ResultsDashboard result={result} />
+          </div>
+        ) : null}
       </main>
 
       <LoadingExperience active={loading} />

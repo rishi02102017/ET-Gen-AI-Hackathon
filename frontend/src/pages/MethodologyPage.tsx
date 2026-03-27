@@ -3,7 +3,7 @@ import "../App.css";
 
 export function MethodologyPage() {
   return (
-    <main className="main methodology-page">
+    <main id="main-content" className="main methodology-page" tabIndex={-1}>
       <header className="methodology-page-hero">
         <p className="hero-eyebrow">Documentation</p>
         <h1 className="methodology-page-title">Methodology</h1>
