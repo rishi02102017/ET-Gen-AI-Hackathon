@@ -1,0 +1,25 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+dist/
+node_modules/
+frontend/dist/
+coverage/
+htmlcov/
+*.egg-info/
+.DS_Store
+*.log
+.idea/
+.vscode/
+
+# Large local artifacts (problem brief, deck) — not required to run the app
+ET_AI_Hackathon_2026_PS.pdf
+Final_PPT_ET-Hackathon*.pptx

@@ -1,0 +1,29 @@
+services:
+  api:
+    build:
+      context: ./backend
+    environment:
+      # Primary: LLM_API_KEY + OPENAI_BASE_URL. Optional: GROQ_API_KEY for automatic fallback (README §10).
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      GROQ_MODEL: ${GROQ_MODEL:-llama-3.3-70b-versatile}
+      LLM_PRIMARY_RATE_LIMIT_RETRIES: ${LLM_PRIMARY_RATE_LIMIT_RETRIES:-2}
+      LLM_FALLBACK_ENABLED: ${LLM_FALLBACK_ENABLED:-true}
+      LLM_FALLBACK_MAX_CHARS_PER_ARTICLE: ${LLM_FALLBACK_MAX_CHARS_PER_ARTICLE:-8000}
+      USE_MOCK_LLM: ${USE_MOCK_LLM:-true}
+      OPENROUTER_HTTP_REFERER: ${OPENROUTER_HTTP_REFERER:-}
+      OPENROUTER_X_TITLE: ${OPENROUTER_X_TITLE:-}
+      CORS_ORIGINS: "http://localhost:5173,http://127.0.0.1:5173,http://localhost:8080"
+    ports:
+      - "8000:8000"
+
+  web:
+    build:
+      context: ./frontend
+    depends_on:
+      - api
+    ports:
+      - "8080:80"
