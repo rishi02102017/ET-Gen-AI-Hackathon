@@ -850,6 +850,209 @@ a.btn {
   animation: fade-in 0.5s ease;
 }
 
+.navigator-anchor {
+  scroll-margin-top: 5.25rem;
+}
+
+.section-lede {
+  margin: 0.65rem 0 0;
+  max-width: 52rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.run-summary-banner {
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.08), rgba(99, 102, 241, 0.06));
+  border: 1px solid rgba(94, 234, 212, 0.2);
+}
+
+.run-summary-label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.run-summary-text {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.navigator-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.75rem;
+}
+
+.navigator-toc__link {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-secondary);
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-raised);
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.navigator-toc__link:hover {
+  color: var(--accent);
+  border-color: rgba(94, 234, 212, 0.35);
+  background: rgba(94, 234, 212, 0.06);
+}
+
+.navigator-panel {
+  margin-bottom: 2.25rem;
+}
+
+.navigator-panel__head {
+  margin-bottom: 1rem;
+}
+
+.navigator-step {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.navigator-panel__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+}
+
+.navigator-panel__blurb {
+  margin: 0;
+  max-width: 48rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.navigator-card--full {
+  margin-bottom: 0;
+}
+
+.bento--navigator {
+  margin-bottom: 0;
+}
+
+.card--compare-strip {
+  min-height: 100%;
+}
+
+.compare-strip-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.compare-strip-cell {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.compare-strip-cell:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.compare-strip-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compare-strip-sent {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.stance-badge--compact {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.45rem;
+}
+
+.framing-actors {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.prov-warn-details {
+  margin-bottom: 1rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.prov-warn-details summary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prov-warn-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.prov-warn-count {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.12);
+  color: #fcd34d;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+.prov-warn-hint {
+  margin: 0.6rem 0 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.prov-warn-details .warn-list {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+}
+
+.card--provenance {
+  margin-top: 0;
+}
+
 .section-heading {
   margin-bottom: 1.25rem;
 }
@@ -1334,10 +1537,6 @@ a.btn {
 }
 
 /* Provenance */
-.card--provenance {
-  margin-top: 0.5rem;
-}
-
 .prov-row {
   display: flex;
   flex-wrap: wrap;

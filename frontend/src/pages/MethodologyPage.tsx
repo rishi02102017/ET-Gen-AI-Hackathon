@@ -26,6 +26,20 @@ export function MethodologyPage() {
           </p>
         </section>
 
+        <section className="methodology-block" aria-labelledby="navigator-ui-heading">
+          <h2 id="navigator-ui-heading" className="methodology-h2">
+            News navigator (results UI)
+          </h2>
+          <p className="methodology-prose">
+            After analysis, the console presents an <strong>explorable briefing</strong> aligned with
+            intelligence-style news experiences: shared event hypothesis, divergence at a glance,
+            weighted drivers, per-source framing, then audit metadata. A concise <strong>run summary</strong>{" "}
+            highlights fallbacks or validation (e.g. rate limits, backup model); the full provider retry log
+            stays in a collapsed <strong>technical log</strong> so judges can skim the story first and drill
+            down when needed.
+          </p>
+        </section>
+
         <section className="methodology-block" aria-labelledby="pipeline-heading">
           <h2 id="pipeline-heading" className="methodology-h2">
             Pipeline

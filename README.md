@@ -9,7 +9,7 @@ The solution deliberately separates:
 - **Interpretive inference** (large language model, structured JSON outputs, evidence-linked rationales), from
 - **Deterministic aggregation** (a transparent divergence index with explicit subcomponents and weights).
 
-The outcome is a full-stack reference implementation: a **FastAPI** service, a **React** operator console, **SSR-safe URL ingestion** with basic anti-SSRF controls, an **OpenAI-compatible LLM client** (suitable for **Groq**, **OpenRouter**, self-hosted gateways, or OpenAI), and a **mock inference mode** for demonstrations without any remote model.
+The outcome is a full-stack reference implementation: a **FastAPI** service, a **React** operator console with a **News navigator**-style explorable results flow (stepwise briefing, run summary, collapsible technical log), **SSR-safe URL ingestion** with basic anti-SSRF controls, an **OpenAI-compatible LLM client** (suitable for **Groq**, **OpenRouter**, self-hosted gateways, or OpenAI), and a **mock inference mode** for demonstrations without any remote model.
 
 ---
 
